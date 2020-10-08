@@ -118,7 +118,7 @@ class Landing extends Component {
                             </Link>
                         </Left>
                         <Right>
-                            <div style={{ alignSelf: 'flex-end', marginBottom: '40px', position: 'absolute', top: '40px'}}>
+                            <div className="d-none d-md-block" style={{ alignSelf: 'flex-end', marginBottom: '40px', position: 'absolute', top: '40px'}}>
                                 <Link to="/auth/login">
                                     <ButtonLanding primary className="mr-3">Login</ButtonLanding>
                                 </Link>

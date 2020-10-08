@@ -57,7 +57,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div style={style.right} className="right">
+            <div id="right" style={style.right} className="right">
                 <div className="bold big start">Start Accessing Banking Needs
                     With All Devices and All Platforms
                     With 30.000+ Users

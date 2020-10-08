@@ -81,6 +81,9 @@ class Input extends Component {
               await axios.patch(`https://whispering-falls-27902.herokuapp.com/users/${this.props.data.id}`, {
                   balance: this.props.data.balance - this.state.amount
               })
+              await axios.patch(`https://whispering-falls-27902.herokuapp.com/users/${this.state.dataReceiver.user_id}`, {
+                  balance: this.state.dataReceiver.balance + this.state.amount
+              })
             } else {
                 this.setState({ isFailed: true })
             }

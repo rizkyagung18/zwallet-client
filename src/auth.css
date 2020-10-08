@@ -168,11 +168,11 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .content .right {
+    .auth .right {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 150px;
+        padding: 150px !important;
     }
 
     .button {
@@ -181,11 +181,11 @@
 }
 
 @media screen and (max-width: 576px) {
-    .content .right div {
-        width: 100%;
+    .auth .right div {
+        width: 100% !important;
     }
 
-    .content .right {
-        padding: 10px;
+    .auth .right {
+        padding: 10px !important;
     }
 }

@@ -10,7 +10,7 @@ import Forgot from './Forgot/'
 const Auth = (props) => {
     return (
         <Router history={createBrowserHistory}>
-            <div className="d-flex flex-lg-row flex-column">
+            <div className="d-flex flex-lg-row flex-column auth">
                 <AuthLogo />
                 <Switch>
                     <Route exact path="/auth/login" component={() => <Login {...props} />} />
