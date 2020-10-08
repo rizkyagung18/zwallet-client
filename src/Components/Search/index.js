@@ -54,7 +54,6 @@ class Search extends Component {
     }
 
     render() {
-        console.log(window.location.href)
         const id = this.props.match.params.id
         return (
             <div style={{height:'80vh'}} className="content-main">

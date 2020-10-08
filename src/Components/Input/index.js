@@ -7,6 +7,8 @@ import Edit from '../../icons/edit.svg'
 import EditActive from '../../icons/edit-active.svg'
 import Success from '../../icons/success.svg'
 import Failed from '../../icons/failed.svg'
+import Share from '../../icons/share.svg'
+import Download from '../../icons/download-pdf.svg'
 import { Link } from 'react-router-dom'
 
 class Input extends Component {
@@ -164,7 +166,7 @@ class Input extends Component {
                 </div>
                 <form>
                     <div className="input bg-transparent">
-                        <input onInput={this.handleInputAmount} value={this.state.amount} className="amount primary bg-transparent" type="text" placeholder="0.00" />
+                        <input onChange={this.handleInputAmount} value={this.state.amount} className="amount primary bg-transparent" type="text" placeholder="0.00" />
                         <span className="cash bold med">Rp{this.props.data.balance} Available</span>
                     </div>
                     <div className="notes bg-transparent">
@@ -284,11 +286,11 @@ class Input extends Component {
                     </div>
                 </div>
                 <div className="d-flex justify-content-end">
-                    <button className="small-btn-light-primary">
-                        <img alt="share" />
+                    <button className="small-btn-light-primary mr-3">
+                        <img src={Share} alt="share" />
                     </button>
-                    <button className="big-btn-light-primary text primary bold">
-                        Download PDF
+                    <button className="big-btn-light-primary text primary bold mr-3">
+                        <img src={Download} alt="download" /> Download PDF
                     </button>
                     <Link to="/home/1">
                         <button className="med-btn-primary">
@@ -368,7 +370,6 @@ class Input extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div className="content-main">
                 {this.state.isStatus ? this.renderLast() : this.renderFirst()}

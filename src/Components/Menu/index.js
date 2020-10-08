@@ -61,7 +61,7 @@ class Menu extends Component {
             </div>
             <div className="item logout">
                 <img src={Logout} alt=""/>
-                <Link to="/auth/login" onClick={() => window.location.reload()}>
+                <Link to="/">
                     <span className="text ml-3">Logout</span>
                 </Link>
             </div>

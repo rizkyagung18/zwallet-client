@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import bell from '../../icons/bell.svg'
 
 class Bar extends Component {
@@ -29,7 +30,7 @@ class Bar extends Component {
         const phone = this.props.data.phone
         return (
             <Navbar className="nav" bg="white" expand="lg">
-                <Container className="navbar py-5">
+                <Container fluid="md" className="py-5">
                     <Nav.Item className="logo primary">Zwallet</Nav.Item>
                     <Nav.Item className="d-none d-md-flex justify-content-between align-items-center">
                         <div className="mr-4">
@@ -57,24 +58,24 @@ class Bar extends Component {
                         <div className="d-flex flex-column align-items-center justify-content-between bottom">
                             <div className="d-flex justify-content-between flex-column align-items-center">
                                 <div className="px-4 my-5">
-                                    <span className="big primary bold"><a href="home.html">Dashboard</a></span>
+                                    <span onClick={() => this.setState({ sidebarActive: false })} className="big primary bold"><Link to={{ pathname: `/home/${this.props.data.id}`}}>Dashboard</Link></span>
                                     <hr className="bg-primary"/>
                                 </div>
                                 <div className="py-4 my-5">
-                                    <span className="big primary bold"><a href="search.html">Transfer</a></span>
+                                    <span onClick={() => this.setState({ sidebarActive: false })} className="big primary bold"><Link to={{ pathname: `/transfer/${this.props.data.id}`}}>Transfer</Link></span>
                                     <hr className="bg-primary"/>
                                 </div>
                                 <div className="px-4 my-5">
-                                    <span className="big primary bold"><a href="topup.html">Top Up</a></span>
+                                    <span onClick={() => this.setState({ sidebarActive: false })} className="big primary bold"><Link to={{ pathname: `/topup/${this.props.data.id}`}}>Top Up</Link></span>
                                     <hr className="bg-primary"/>
                                 </div>
                                 <div className="px-4 my-5">
-                                    <span className="big primary bold">Profile</span>
+                                    <span onClick={() => this.setState({ sidebarActive: false })} className="big primary bold"><Link to={{ pathname: `/profile/${this.props.data.id}`}}>Profile</Link></span>
                                     <hr className="bg-primary"/>
                                 </div>
                             </div>
                             <div className="sidenav-logout align-self-center my-5">
-                                <span className="big primary bold"><a href="login.html">Logout</a></span>
+                            <span onClick={() => this.setState({ sidebarActive: false })} className="big primary bold"><Link to={{ pathname: `/`}}>Logout</Link></span>
                             </div>
                         </div>
                     </div>
