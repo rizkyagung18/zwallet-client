@@ -4,6 +4,7 @@ import Footer from './Footer/';
 import Menu from './Menu/';
 import Navbar from './Navbar/'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 import Home from './Home/'
 import axios from 'axios';
 import Search from './Search/';
@@ -30,7 +31,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <Router>
+            <Router history={createBrowserHistory}>
                 <Navbar data={this.state.data} />
                 <Container fluid="md" className="d-flex justify-content-between flex-column flex-lg-row">
                     <Menu id={this.props.match.params.id} />

@@ -19,6 +19,7 @@ class Input extends Component {
             note: '',
             isNoteActive: false,
             isContinue: false,
+            messageContinue: '',
             modalShow: false,
             dataReceiver: [],
             pin: ['', '', '', '', '', ''],
@@ -37,6 +38,15 @@ class Input extends Component {
         const id = path[path.length-1]
         const res = await axios(`https://whispering-falls-27902.herokuapp.com/users/search/receiver/${id}}`)
         this.setState({ dataReceiver: res.data.data[0]})
+    }
+
+    handleContinue = (e) => {
+        e.preventDefault()
+        if(parseInt(this.state.amount)) {
+            this.setState({ isContinue: true })
+        } else {
+            this.setState({ messageContinue: 'Input should a number and not 0'})
+        }
     }
 
     handleInputAmount(e) {
@@ -68,6 +78,9 @@ class Input extends Component {
             this.setState({ isStatus: true })
             if(res.status === 201) {
               this.setState({ isSuccess: true })
+              await axios.patch(`https://whispering-falls-27902.herokuapp.com/users/${this.props.data.id}`, {
+                  balance: this.props.data.balance - this.state.amount
+              })
             } else {
                 this.setState({ isFailed: true })
             }
@@ -173,8 +186,9 @@ class Input extends Component {
                         <img className="edit" src={this.state.isNoteActive ? EditActive : Edit} alt="" />
                         <input onFocus={() => this.setState({ isNoteActive: true })} onBlur={() => this.setState({ isNoteActive: false })} onChange={this.handleInputNotes} value={this.state.note} className="note bg-transparent" type="text" placeholder="Add some notes" />
                     </div>
+                    <p className="text-danger text-center med">{this.state.messageContinue}</p>
                     <div className="confirm">
-                        <button onClick={() => this.state.amount ? this.setState({ isContinue: true }) : this.setState({ isContinue: false })} type="submit" className="btn-primary">Continue</button>
+                        <button onClick={this.handleContinue} type="submit" className="btn-primary">Continue</button>
                     </div>
                 </form>
             </>
